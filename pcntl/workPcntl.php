@@ -29,6 +29,8 @@ class workPcntl {
  * 需引入 msgQueue.php,pcntl.php
  * Class StartWork
  */
+include_once('pcntl.php');
+include_once('msgQueue.php');
 class StartWork {
     public $pcntlModel;
     public $msgModel;
@@ -44,10 +46,10 @@ class StartWork {
         $this->pcntlModel->masterWork = function() {
             //入队列数据，根据自身业务存数据
             $end = 10;
+            $tmp = 0;
             while($tmp <= $end) {
-                $index++;
                 $status = $this->msgModel->send($tmp);
-                $tmp＋＋;
+                $tmp++;
             }
             //主进程监控队列，无数据消灭队列
             while(true) {
