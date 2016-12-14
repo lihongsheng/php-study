@@ -1,0 +1,102 @@
+/**
+线程函数说明
+**/
+
+Thread extends Threaded implements Countable , Traversable , ArrayAccess {
+/* 方法
+  从调用上下文中将引用线程分离出来，非常危险！
+  应该是控制线程的意思
+*/
+public void detach ( void )   {
+
+}
+/**
+得到创建当前线程的线程ID
+**/
+public integer getCreatorId ( void )
+/**
+获取当前执行线程的引用，
+表示当前执行线程的对象。
+**/
+public static Thread getCurrentThread ( void )
+
+
+/**
+返回当前执行线程的ID
+**/
+public static integer getCurrentThreadId ( void )
+
+/**
+返回引用线程的ID
+**/
+public integer getThreadId ( void )
+
+/**
+在全局范围中执行代码块
+**/
+public static mixed globally ( void )
+
+/**
+线程是否已经被加入（join） (PS::应该是创建的意思吧)
+**/
+public boolean isJoined ( void )
+
+/**线程是否开始**、
+public boolean isStarted ( void )
+/**
+加入线程
+**/
+public boolean join ( void )
+/**
+杀死线程
+**/
+public void kill ( void )
+/**
+开始执行run方法
+**/
+public boolean start ([ integer $options ] )
+/* 继承的方法 */
+public array Threaded::chunk ( integer $size , boolean $preserve )
+
+返回对象属性数量
+public integer Threaded::count ( void )
+
+/**
+使当前类 基础线程类？？？？
+**/
+public bool Threaded::extend ( string $class ) {
+    <?php
+    class My {}
+
+    Threaded::extend(My::class);
+
+    $my = new My();
+
+    var_dump($my instanceof Threaded);
+    ?>
+}
+
+
+public Threaded Threaded::from ( Closure $run [, Closure $construct [, array $args ]] )
+
+返回对象的终端错误信息
+public array Threaded::getTerminationInfo ( void )
+
+
+对象是否正在运行
+public boolean Threaded::isRunning ( void )
+
+
+
+public boolean Threaded::isTerminated ( void )
+public boolean Threaded::isWaiting ( void )
+public boolean Threaded::lock ( void )
+public boolean Threaded::merge ( mixed $from [, mixed $overwrite ] )
+public boolean Threaded::notify ( void )
+public boolean Threaded::pop ( void )
+public void Threaded::run ( void )
+public boolean Threaded::shift ( void )
+public mixed Threaded::synchronized ( Closure $block [, mixed $... ] )
+public boolean Threaded::unlock ( void )
+public boolean Threaded::wait ([ integer $timeout ] )
+}
